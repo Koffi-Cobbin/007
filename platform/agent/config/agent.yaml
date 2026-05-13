@@ -1,0 +1,25 @@
+# dtask-agent configuration
+# Paths searched (in order): agent.yaml → config/agent.yaml
+#                             → ~/.config/dtask-agent/agent.yaml
+#                             → /etc/dtask-agent/agent.yaml
+# Environment overrides: DTASK_* (e.g. DTASK_MASTER_URL)
+
+master_url: "http://localhost:8000"
+fallback_url: ""                             # optional fallback master URL (Phase 8)
+device_id: ""                                # defaults to hostname if empty
+enrollment_key: "change-me-to-a-valid-key"
+agent_version: "1.0.0"
+
+heartbeat_interval: 30                       # seconds between heartbeats
+discovery_port: 42069                         # UDP port for LAN discovery beacons
+discovery_timeout: 3.0                        # seconds to wait for discovery responses
+task_poll_interval: 5                        # seconds between task polls
+log_level: "INFO"
+data_dir: "./agent_data"                     # local working directory
+
+capabilities:
+  cpu_cores: 0                               # 0 = auto-detect
+  memory_mb: 0                               # 0 = auto-detect
+  os_family: ""                              # empty = auto-detect
+  os_distribution: ""                        # empty = auto-detect
+  workload_types: []                         # e.g. ["file_processing", "checksum"]

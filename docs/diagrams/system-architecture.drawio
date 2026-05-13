@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-05-12T12:00:00.000Z" agent="Mozilla/5.0" version="24.7.8">
+  <diagram id="system-architecture" name="System Architecture">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="Distributed Task Orchestration Platform — System Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=1;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="250" y="10" width="500" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Legend box -->
+        <mxCell id="legend-box" value="Legend" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#f5f5f5;strokeColor=#999;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="10" y="760" width="250" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-rest" value="REST API" style="endArrow=classic;html=1;rounded=0;strokeColor=#2979FF;fontSize=10;labelBackgroundColor=#f5f5f5;" edge="1" parent="1">
+          <mxGeometry x="20" y="785" as="geometry">
+            <mxPoint x="20" y="785"/>
+            <mxPoint x="80" y="785"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-ws" value="WebSocket" style="endArrow=classic;html=1;rounded=0;strokeColor=#00C853;fontSize=10;labelBackgroundColor=#f5f5f5;dashed=1;" edge="1" parent="1">
+          <mxGeometry x="20" y="805" as="geometry">
+            <mxPoint x="20" y="805"/>
+            <mxPoint x="80" y="805"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-internal" value="Internal / DB" style="endArrow=classic;html=1;rounded=0;strokeColor=#FF6D00;fontSize=10;labelBackgroundColor=#f5f5f5;" edge="1" parent="1">
+          <mxGeometry x="130" y="785" as="geometry">
+            <mxPoint x="130" y="785"/>
+            <mxPoint x="190" y="785"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ====== Control Plane Box ====== -->
+        <mxCell id="control-plane-bg" value="CONTROL PLANE (Django Backend)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontSize=12;fontStyle=1;verticalAlign=top;paddingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="350" y="70" width="400" height="460" as="geometry"/>
+        </mxCell>
+
+        <!-- Django REST API -->
+        <mxCell id="django-api" value="Django REST API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=11;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="100" width="160" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- WebSocket / Channels -->
+        <mxCell id="django-channels" value="Django Channels (WebSocket)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=11;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="100" width="160" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Orchestrator -->
+        <mxCell id="orchestrator" value="Orchestrator&#10;Job &amp; Task Manager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=11;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="180" width="340" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Scheduler -->
+        <mxCell id="scheduler" value="Scheduler Engine&#10;Assignment &amp; Resource Matcher" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=11;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="250" width="340" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Node Registry -->
+        <mxCell id="node-registry" value="Node Registry&#10;Capabilities &amp; Heartbeats" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=11;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="320" width="340" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Security -->
+        <mxCell id="security" value="Security &amp; Auth&#10;Enrollment / Tokens" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=11;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="390" width="340" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Admin UI -->
+        <mxCell id="admin-ui" value="Django Admin UI&#10;(Operator Dashboard)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=11;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="460" width="340" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- ====== Data Layer Box ====== -->
+        <mxCell id="data-layer-bg" value="DATA LAYER" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=12;fontStyle=1;verticalAlign=top;paddingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="780" y="70" width="200" height="320" as="geometry"/>
+        </mxCell>
+
+        <!-- SQLite / PostgreSQL -->
+        <mxCell id="postgres" value="SQLite (dev)&#10;PostgreSQL (prod)&#10;Primary Store&#10;Nodes, Tasks, Jobs,&#10;History, Audit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#E65100;fontSize=11;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="800" y="100" width="160" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- django-q2 -->
+        <mxCell id="redis" value="django-q2&#10;Task Queue&#10;Scheduling, Retries,&#10;Failure Handling" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#E65100;fontSize=11;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="800" y="220" width="160" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- ====== Agent Box ====== -->
+        <mxCell id="agent-bg" value="AGENT LAYER (Python Agent)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=12;fontStyle=1;verticalAlign=top;paddingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="50" y="70" width="270" height="350" as="geometry"/>
+        </mxCell>
+
+        <!-- Agent Core -->
+        <mxCell id="agent-core" value="Agent Core&#10;Registration, Heartbeat,&#10;Config Management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;fontSize=11;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="75" y="100" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Agent Transport -->
+        <mxCell id="agent-transport" value="Transport Layer&#10;REST Client + WebSocket&#10;(requests + channels)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;fontSize=11;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="75" y="180" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Agent Executor -->
+        <mxCell id="agent-executor" value="Executor&#10;Subprocess Runner,&#10;Task Lifecycle" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;fontSize=11;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="75" y="260" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Agent Discovery -->
+        <mxCell id="agent-discovery" value="Discovery Module&#10;LAN Discovery,&#10;Manual Join" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;fontSize=11;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="75" y="340" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ====== External Actor ====== -->
+        <mxCell id="operator" value="Operator&#10;(Human)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#4527A0;fontSize=11;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="830" y="450" width="80" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ====== Edges ====== -->
+
+        <!-- Agent REST to Django API -->
+        <mxCell id="edge-agent-api" value="REST (JSON)" style="endArrow=classic;html=1;rounded=0;strokeColor=#2979FF;fontSize=10;labelBackgroundColor=#E8F5E9;" edge="1" parent="1">
+          <mxGeometry x="300" y="420">
+            <mxPoint x="295" y="135"/>
+            <mxPoint x="380" y="135"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Agent WS to Django Channels -->
+        <mxCell id="edge-agent-ws" value="WebSocket (live)" style="endArrow=classic;html=1;rounded=0;strokeColor=#00C853;fontSize=10;labelBackgroundColor=#E8F5E9;dashed=1;" edge="1" parent="1">
+          <mxGeometry x="300" y="445">
+            <mxPoint x="295" y="200"/>
+            <mxPoint x="560" y="135"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Django API → Orchestrator -->
+        <mxCell id="edge-api-orch" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#FF6D00;fontSize=10;" edge="1" parent="1">
+          <mxGeometry x="555" y="150">
+            <mxPoint x="550" y="155"/>
+            <mxPoint x="550" y="180"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Orchestrator → Scheduler -->
+        <mxCell id="edge-orch-sched" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#FF6D00;fontSize=10;" edge="1" parent="1">
+          <mxGeometry x="555" y="230">
+            <mxPoint x="550" y="235"/>
+            <mxPoint x="550" y="250"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Orchestrator → PostgreSQL -->
+        <mxCell id="edge-orch-db" value="ORM" style="endArrow=classic;html=1;rounded=0;strokeColor=#FF6D00;fontSize=10;labelBackgroundColor=#FFF3E0;" edge="1" parent="1">
+          <mxGeometry x="725" y="195">
+            <mxPoint x="720" y="140"/>
+            <mxPoint x="800" y="140"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Scheduler → django-q2 -->
+        <mxCell id="edge-sched-redis" value="async()" style="endArrow=classic;html=1;rounded=0;strokeColor=#FF6D00;fontSize=10;labelBackgroundColor=#FFF3E0;" edge="1" parent="1">
+          <mxGeometry x="725" y="265">
+            <mxPoint x="720" y="260"/>
+            <mxPoint x="800" y="260"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Node Registry → PostgreSQL -->
+        <mxCell id="edge-registry-db" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#FF6D00;fontSize=10;" edge="1" parent="1">
+          <mxGeometry x="725" y="345">
+            <mxPoint x="720" y="345"/>
+            <mxPoint x="800" y="200"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Operator → Admin UI -->
+        <mxCell id="edge-operator-admin" value="Browser" style="endArrow=classic;html=1;rounded=0;strokeColor=#4527A0;fontSize=10;labelBackgroundColor=#EDE7F6;" edge="1" parent="1">
+          <mxGeometry x="850" y="460">
+            <mxPoint x="845" y="480"/>
+            <mxPoint x="720" y="490"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
